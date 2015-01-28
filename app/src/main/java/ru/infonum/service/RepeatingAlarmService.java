@@ -79,7 +79,7 @@ public class RepeatingAlarmService extends BroadcastReceiver {
 
     public static List<String[]> notiArr = new ArrayList<String[]>();
     public static String[] noti;
-    public static String appNum;
+    public static String appNum = null;
 
 
     @Override
@@ -90,20 +90,21 @@ public class RepeatingAlarmService extends BroadcastReceiver {
 
         new Installation();
 
-
-        appNum = Installation.id(ctx, appNum); // проверяем наличие файла с кодом приложения
-        if (appNum == null) appActivated = false;
-        if (appActivated) {
-            deviceId = INST_RQ; //если файла нет, то запрашиваем код приложения, передав вместо deviceId строку запроса.
-        } else {
-            deviceId = getDeviceId(ctx);      // раз не первый запуск приложения, выясняем данные устройства.
+        deviceId = appNum;
+        // deviceId = getDeviceId(ctx);      // раз не первый запуск приложения, выясняем данные устройства.
+        if (appActivated == false) {
+            Installation.id(ctx, appNum); // проверяем наличие файла с кодом приложения
+            if (appNum == null)
+                deviceId = INST_RQ; //если файла нет, то запрашиваем код приложения, передав вместо deviceId строку запроса.
+            else
+                appActivated = true;
         }
         // запускаем цикл post-запросов к сайту по таймеру.
         // проверяем наличие новых сообщений, разбирая ответ
         // если есть новые - генерируем уведомление.
 
         //
-        responseStr = "";
+        responseStr = ""; // в нее придет ответ
         new RequestTask().execute(INFONUM_SITE + NOTIF_SITE); // post-запрос по этому адресу
 
         Log.v(this.getClass().getName(), "Timed alarm onReceive() started at time: " + new java.sql.Timestamp(System.currentTimeMillis()).toString());
@@ -111,13 +112,12 @@ public class RepeatingAlarmService extends BroadcastReceiver {
         if (responseStr.length() > 0) {
             jsonToArray(responseStr);
             if (appActivated) {
-
                 for (int i = 0; i < messQ; i++) {
                     setNotiParam(i);
                     sendNotification();
                 }
             } else {
-                appNum = Installation.id(ctx, noti[3]);
+                Installation.id(ctx, noti[3]);
 
             }
         }

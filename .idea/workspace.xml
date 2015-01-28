@@ -19,80 +19,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f024f25-7b18-4568-ab72-8390546a0c38" name="Default" comment="1st">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_stat_notification.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi-v11/ic_stat_notification.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi-v9/ic_stat_notification.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi-v11/ic_stat_notification.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-ldpi-v9/ic_stat_notification.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_stat_notification.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi-v11/ic_stat_notification.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi-v9/ic_stat_notification.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_stat_notification.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi-v11/ic_stat_notification.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi-v9/ic_stat_notification.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/s1.apk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/s2.apk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/s3.apk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/s4.apk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/s5.apk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/s6.apk" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/tile.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/ru/infonum/service/BuildConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/release/ru/infonum/service/BuildConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/test/debug/ru/infonum/service/test/BuildConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/InfonumService1.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/Installation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/OnBootReceiver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/ru/infonum/service/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/generated/source/r/release/ru/infonum/service/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/RepeatingAlarmService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/ServiceActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ServiceExample-master1.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/ServiceExample.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/base-colors.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/base-strings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values-v21/base-template-styles.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/d1w.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradlew.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gradlew" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid10475.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid6281.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid9348.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/import-summary.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/debug/inputList.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/build/intermediates/tmp/dex/release/inputList.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/main.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/manifest-merger-release-report.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/replay_pid10475.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/template-dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values-sw600dp/template-dimens.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values/template-styles.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values-sw600dp/template-styles.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/values-v11/template-styles.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/Installation.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/Installation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/RepeatingAlarmService.java" afterPath="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/RepeatingAlarmService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradlew.bat" afterPath="$PROJECT_DIR$/gradlew.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="InfonumService1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -135,37 +65,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RepeatingAlarmService.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RepeatingAlarmService.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/infonum/service/RepeatingAlarmService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1107" max-vertical-offset="5145">
-              <caret line="93" column="12" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.5246479" vertical-offset="512" max-vertical-offset="5145">
+              <caret line="54" column="52" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3282#3333#0" expanded="false" />
-                <element signature="e#6367#6422#0" expanded="false" />
-                <element signature="e#9372#9374#0" expanded="false" />
-                <element signature="e#9494#9559#0" expanded="false" />
-                <element signature="e#10147#10175#0" expanded="false" />
-                <element signature="e#10394#10396#0" expanded="false" />
-                <element signature="e#10702#10758#0" expanded="false" />
-                <element signature="e#10895#10982#0" expanded="false" />
-                <element signature="e#11090#11092#0" expanded="false" />
-                <element signature="e#11432#11517#0" expanded="false" />
-                <element signature="e#12368#12403#0" expanded="false" />
-                <element signature="e#12784#12817#0" expanded="false" />
+                <element signature="e#3340#3391#0" expanded="false" />
+                <element signature="e#6437#6492#0" expanded="false" />
+                <element signature="e#9442#9444#0" expanded="false" />
+                <element signature="e#9564#9629#0" expanded="false" />
+                <element signature="e#10217#10245#0" expanded="false" />
+                <element signature="e#10464#10466#0" expanded="false" />
+                <element signature="e#10772#10828#0" expanded="false" />
+                <element signature="e#10965#11052#0" expanded="false" />
+                <element signature="e#11160#11162#0" expanded="false" />
+                <element signature="e#11502#11587#0" expanded="false" />
+                <element signature="e#12438#12473#0" expanded="false" />
+                <element signature="e#12854#12887#0" expanded="false" />
                 <element signature="method#getDeviceId#0;class#RepeatingAlarmService#0" expanded="false" />
-                <element signature="e#12894#12927#0" expanded="false" />
+                <element signature="e#12964#12997#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Installation.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Installation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/infonum/service/Installation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12908778" vertical-offset="0" max-vertical-offset="795">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="169" max-vertical-offset="810">
+              <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -790,8 +720,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/ServiceExample.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/ServiceActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/OnBootReceiver.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/RepeatingAlarmService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/Installation.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/infonum/service/RepeatingAlarmService.java" />
       </list>
     </option>
   </component>
@@ -1139,6 +1069,11 @@
       <created>1419710333453</created>
       <updated>1419710333453</updated>
     </task>
+    <task id="LOCAL-00001" summary="1st">
+      <created>1422458549267</created>
+      <updated>1422458549267</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1163,7 +1098,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1280" height="1000" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1176,7 +1111,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32671082" sideWeight="0.4994641" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3289183" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3289183" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3245033" sideWeight="0.5916399" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
@@ -1252,20 +1187,20 @@
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3282#3333#0" expanded="false" />
-            <element signature="e#6367#6422#0" expanded="false" />
-            <element signature="e#9372#9374#0" expanded="false" />
-            <element signature="e#9494#9559#0" expanded="false" />
-            <element signature="e#10147#10175#0" expanded="false" />
-            <element signature="e#10394#10396#0" expanded="false" />
-            <element signature="e#10702#10758#0" expanded="false" />
-            <element signature="e#10895#10982#0" expanded="false" />
-            <element signature="e#11090#11092#0" expanded="false" />
-            <element signature="e#11432#11517#0" expanded="false" />
-            <element signature="e#12368#12403#0" expanded="false" />
-            <element signature="e#12784#12817#0" expanded="false" />
+            <element signature="e#3340#3391#0" expanded="false" />
+            <element signature="e#6437#6492#0" expanded="false" />
+            <element signature="e#9442#9444#0" expanded="false" />
+            <element signature="e#9564#9629#0" expanded="false" />
+            <element signature="e#10217#10245#0" expanded="false" />
+            <element signature="e#10464#10466#0" expanded="false" />
+            <element signature="e#10772#10828#0" expanded="false" />
+            <element signature="e#10965#11052#0" expanded="false" />
+            <element signature="e#11160#11162#0" expanded="false" />
+            <element signature="e#11502#11587#0" expanded="false" />
+            <element signature="e#12438#12473#0" expanded="false" />
+            <element signature="e#12854#12887#0" expanded="false" />
             <element signature="method#getDeviceId#0;class#RepeatingAlarmService#0" expanded="false" />
-            <element signature="e#12894#12927#0" expanded="false" />
+            <element signature="e#12964#12997#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1326,20 +1261,20 @@
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3282#3333#0" expanded="false" />
-            <element signature="e#6367#6422#0" expanded="false" />
-            <element signature="e#9372#9374#0" expanded="false" />
-            <element signature="e#9494#9559#0" expanded="false" />
-            <element signature="e#10147#10175#0" expanded="false" />
-            <element signature="e#10394#10396#0" expanded="false" />
-            <element signature="e#10702#10758#0" expanded="false" />
-            <element signature="e#10895#10982#0" expanded="false" />
-            <element signature="e#11090#11092#0" expanded="false" />
-            <element signature="e#11432#11517#0" expanded="false" />
-            <element signature="e#12368#12403#0" expanded="false" />
-            <element signature="e#12784#12817#0" expanded="false" />
+            <element signature="e#3340#3391#0" expanded="false" />
+            <element signature="e#6437#6492#0" expanded="false" />
+            <element signature="e#9442#9444#0" expanded="false" />
+            <element signature="e#9564#9629#0" expanded="false" />
+            <element signature="e#10217#10245#0" expanded="false" />
+            <element signature="e#10464#10466#0" expanded="false" />
+            <element signature="e#10772#10828#0" expanded="false" />
+            <element signature="e#10965#11052#0" expanded="false" />
+            <element signature="e#11160#11162#0" expanded="false" />
+            <element signature="e#11502#11587#0" expanded="false" />
+            <element signature="e#12438#12473#0" expanded="false" />
+            <element signature="e#12854#12887#0" expanded="false" />
             <element signature="method#getDeviceId#0;class#RepeatingAlarmService#0" expanded="false" />
-            <element signature="e#12894#12927#0" expanded="false" />
+            <element signature="e#12964#12997#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1392,20 +1327,20 @@
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3282#3333#0" expanded="false" />
-            <element signature="e#6367#6422#0" expanded="false" />
-            <element signature="e#9372#9374#0" expanded="false" />
-            <element signature="e#9494#9559#0" expanded="false" />
-            <element signature="e#10147#10175#0" expanded="false" />
-            <element signature="e#10394#10396#0" expanded="false" />
-            <element signature="e#10702#10758#0" expanded="false" />
-            <element signature="e#10895#10982#0" expanded="false" />
-            <element signature="e#11090#11092#0" expanded="false" />
-            <element signature="e#11432#11517#0" expanded="false" />
-            <element signature="e#12368#12403#0" expanded="false" />
-            <element signature="e#12784#12817#0" expanded="false" />
+            <element signature="e#3340#3391#0" expanded="false" />
+            <element signature="e#6437#6492#0" expanded="false" />
+            <element signature="e#9442#9444#0" expanded="false" />
+            <element signature="e#9564#9629#0" expanded="false" />
+            <element signature="e#10217#10245#0" expanded="false" />
+            <element signature="e#10464#10466#0" expanded="false" />
+            <element signature="e#10772#10828#0" expanded="false" />
+            <element signature="e#10965#11052#0" expanded="false" />
+            <element signature="e#11160#11162#0" expanded="false" />
+            <element signature="e#11502#11587#0" expanded="false" />
+            <element signature="e#12438#12473#0" expanded="false" />
+            <element signature="e#12854#12887#0" expanded="false" />
             <element signature="method#getDeviceId#0;class#RepeatingAlarmService#0" expanded="false" />
-            <element signature="e#12894#12927#0" expanded="false" />
+            <element signature="e#12964#12997#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1450,20 +1385,20 @@
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3282#3333#0" expanded="false" />
-            <element signature="e#6367#6422#0" expanded="false" />
-            <element signature="e#9372#9374#0" expanded="false" />
-            <element signature="e#9494#9559#0" expanded="false" />
-            <element signature="e#10147#10175#0" expanded="false" />
-            <element signature="e#10394#10396#0" expanded="false" />
-            <element signature="e#10702#10758#0" expanded="false" />
-            <element signature="e#10895#10982#0" expanded="false" />
-            <element signature="e#11090#11092#0" expanded="false" />
-            <element signature="e#11432#11517#0" expanded="false" />
-            <element signature="e#12368#12403#0" expanded="false" />
-            <element signature="e#12784#12817#0" expanded="false" />
+            <element signature="e#3340#3391#0" expanded="false" />
+            <element signature="e#6437#6492#0" expanded="false" />
+            <element signature="e#9442#9444#0" expanded="false" />
+            <element signature="e#9564#9629#0" expanded="false" />
+            <element signature="e#10217#10245#0" expanded="false" />
+            <element signature="e#10464#10466#0" expanded="false" />
+            <element signature="e#10772#10828#0" expanded="false" />
+            <element signature="e#10965#11052#0" expanded="false" />
+            <element signature="e#11160#11162#0" expanded="false" />
+            <element signature="e#11502#11587#0" expanded="false" />
+            <element signature="e#12438#12473#0" expanded="false" />
+            <element signature="e#12854#12887#0" expanded="false" />
             <element signature="method#getDeviceId#0;class#RepeatingAlarmService#0" expanded="false" />
-            <element signature="e#12894#12927#0" expanded="false" />
+            <element signature="e#12964#12997#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1505,20 +1440,20 @@
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3282#3333#0" expanded="false" />
-            <element signature="e#6367#6422#0" expanded="false" />
-            <element signature="e#9372#9374#0" expanded="false" />
-            <element signature="e#9494#9559#0" expanded="false" />
-            <element signature="e#10147#10175#0" expanded="false" />
-            <element signature="e#10394#10396#0" expanded="false" />
-            <element signature="e#10702#10758#0" expanded="false" />
-            <element signature="e#10895#10982#0" expanded="false" />
-            <element signature="e#11090#11092#0" expanded="false" />
-            <element signature="e#11432#11517#0" expanded="false" />
-            <element signature="e#12368#12403#0" expanded="false" />
-            <element signature="e#12784#12817#0" expanded="false" />
+            <element signature="e#3340#3391#0" expanded="false" />
+            <element signature="e#6437#6492#0" expanded="false" />
+            <element signature="e#9442#9444#0" expanded="false" />
+            <element signature="e#9564#9629#0" expanded="false" />
+            <element signature="e#10217#10245#0" expanded="false" />
+            <element signature="e#10464#10466#0" expanded="false" />
+            <element signature="e#10772#10828#0" expanded="false" />
+            <element signature="e#10965#11052#0" expanded="false" />
+            <element signature="e#11160#11162#0" expanded="false" />
+            <element signature="e#11502#11587#0" expanded="false" />
+            <element signature="e#12438#12473#0" expanded="false" />
+            <element signature="e#12854#12887#0" expanded="false" />
             <element signature="method#getDeviceId#0;class#RepeatingAlarmService#0" expanded="false" />
-            <element signature="e#12894#12927#0" expanded="false" />
+            <element signature="e#12964#12997#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1671,35 +1606,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/infonum/service/RepeatingAlarmService.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/infonum/service/Installation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1107" max-vertical-offset="5145">
-          <caret line="93" column="12" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3282#3333#0" expanded="false" />
-            <element signature="e#6367#6422#0" expanded="false" />
-            <element signature="e#9372#9374#0" expanded="false" />
-            <element signature="e#9494#9559#0" expanded="false" />
-            <element signature="e#10147#10175#0" expanded="false" />
-            <element signature="e#10394#10396#0" expanded="false" />
-            <element signature="e#10702#10758#0" expanded="false" />
-            <element signature="e#10895#10982#0" expanded="false" />
-            <element signature="e#11090#11092#0" expanded="false" />
-            <element signature="e#11432#11517#0" expanded="false" />
-            <element signature="e#12368#12403#0" expanded="false" />
-            <element signature="e#12784#12817#0" expanded="false" />
-            <element signature="method#getDeviceId#0;class#RepeatingAlarmService#0" expanded="false" />
-            <element signature="e#12894#12927#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="169" max-vertical-offset="810">
+          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/infonum/service/Installation.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/infonum/service/RepeatingAlarmService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12908778" vertical-offset="0" max-vertical-offset="795">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding />
+        <state vertical-scroll-proportion="0.5246479" vertical-offset="512" max-vertical-offset="5145">
+          <caret line="54" column="52" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3340#3391#0" expanded="false" />
+            <element signature="e#6437#6492#0" expanded="false" />
+            <element signature="e#9442#9444#0" expanded="false" />
+            <element signature="e#9564#9629#0" expanded="false" />
+            <element signature="e#10217#10245#0" expanded="false" />
+            <element signature="e#10464#10466#0" expanded="false" />
+            <element signature="e#10772#10828#0" expanded="false" />
+            <element signature="e#10965#11052#0" expanded="false" />
+            <element signature="e#11160#11162#0" expanded="false" />
+            <element signature="e#11502#11587#0" expanded="false" />
+            <element signature="e#12438#12473#0" expanded="false" />
+            <element signature="e#12854#12887#0" expanded="false" />
+            <element signature="method#getDeviceId#0;class#RepeatingAlarmService#0" expanded="false" />
+            <element signature="e#12964#12997#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

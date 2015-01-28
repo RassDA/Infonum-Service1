@@ -8,29 +8,31 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 /**
- * Created by d1i on 27.01.15.
+ * Created by RassDA on 27.01.15.
+ * на входе код или null
+ * если null - ничего не делает.
+ * иначе проверяет наличие файла
+ * если файл создан, читает код и возвращает его
+ * если нет файла - создает, записывает код в файл и возващает его же
  */
 public class Installation {
 
-    private static String sID = null;
     private static final String INSTALLATION = "INSTALLATION";
 
-    public synchronized static String id(Context context, String appId) {
-        if (sID == null) {
+    public synchronized static void id(Context context, String appId) {
+        if (appId != null) {
             File installation = new File(context.getFilesDir(), INSTALLATION);
             try {
                 if (!installation.exists()) {
-                    if (appId != null) writeInstallationFile(installation, appId);
-                    sID = null;
+                    writeInstallationFile(installation, appId);
 
                 } else {
-                    sID = readInstallationFile(installation);
+                    appId = readInstallationFile(installation);
                 }
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException(e); // TODO: обработать
             }
         }
-        return sID;
     }
 
     private static String readInstallationFile(File installation) throws IOException {
@@ -48,5 +50,4 @@ public class Installation {
         out.write(appId.getBytes());
         out.close();
     }
-// TODO: сделать всё сегодня
 }
