@@ -1,0 +1,91 @@
+-- Merging decision tree log ---
+manifest
+ADDED from AndroidManifest.xml:2:1
+	package
+		ADDED from AndroidManifest.xml:3:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:versionName
+		ADDED from AndroidManifest.xml:5:5
+	android:versionCode
+		ADDED from AndroidManifest.xml:4:5
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
+application
+ADDED from AndroidManifest.xml:7:5
+	android:label
+		ADDED from AndroidManifest.xml:9:9
+	android:icon
+		ADDED from AndroidManifest.xml:8:9
+activity#ru.infonum.service.ServiceActivity
+ADDED from AndroidManifest.xml:11:9
+	android:label
+		ADDED from AndroidManifest.xml:12:13
+	android:name
+		ADDED from AndroidManifest.xml:11:19
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:13:13
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:14:17
+	android:name
+		ADDED from AndroidManifest.xml:14:25
+category#android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:15:17
+	android:name
+		ADDED from AndroidManifest.xml:15:27
+receiver#ru.infonum.service.RepeatingAlarmService
+ADDED from AndroidManifest.xml:19:9
+	android:process
+		ADDED from AndroidManifest.xml:19:57
+	android:name
+		ADDED from AndroidManifest.xml:19:19
+receiver#ru.infonum.service.OnBootReceiver
+ADDED from AndroidManifest.xml:21:9
+	android:enabled
+		ADDED from AndroidManifest.xml:21:50
+	android:exported
+		ADDED from AndroidManifest.xml:21:73
+	android:name
+		ADDED from AndroidManifest.xml:21:19
+intent-filter#android.intent.action.BOOT_COMPLETED
+ADDED from AndroidManifest.xml:22:13
+action#android.intent.action.BOOT_COMPLETED
+ADDED from AndroidManifest.xml:23:17
+	android:name
+		ADDED from AndroidManifest.xml:23:25
+service#ru.infonum.service.ServiceExample
+ADDED from AndroidManifest.xml:27:9
+	android:enabled
+		ADDED from AndroidManifest.xml:27:18
+	android:name
+		ADDED from AndroidManifest.xml:27:41
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from AndroidManifest.xml:31:5
+	android:name
+		ADDED from AndroidManifest.xml:31:22
+uses-permission#android.permission.INTERNET
+ADDED from AndroidManifest.xml:32:5
+	android:name
+		ADDED from AndroidManifest.xml:32:22
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from AndroidManifest.xml:33:5
+	android:name
+		ADDED from AndroidManifest.xml:33:22
+uses-permission#android.permission.SEND_SMS
+ADDED from AndroidManifest.xml:34:5
+	android:name
+		ADDED from AndroidManifest.xml:34:22
+uses-permission#android.permission.VIBRATE
+ADDED from AndroidManifest.xml:35:5
+	android:name
+		ADDED from AndroidManifest.xml:35:22
+uses-sdk
+INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
+	android:targetSdkVersion
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
+	android:minSdkVersion
+		INJECTED from AndroidManifest.xml:0:0
+		INJECTED from AndroidManifest.xml:0:0
