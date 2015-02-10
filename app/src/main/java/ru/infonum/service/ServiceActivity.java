@@ -1,11 +1,14 @@
 package ru.infonum.service;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class ServiceActivity extends Activity implements View.OnClickListener {
 
@@ -31,15 +34,22 @@ public class ServiceActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonStart:
-                Log.v(this.getClass().getName(), "onClick: Starting service.");
+                Log.v(this.getClass().getName(), "onClick: Сервис стартовал.");
                 startService(new Intent(this, ServiceExample.class));
                 break;
             case R.id.buttonStop:
-                Log.v(this.getClass().getName(), "onClick: Stopping service.");
+                Log.v(this.getClass().getName(), "onClick: Сервис остановлен.");
                 stopService(new Intent(this, ServiceExample.class));
                 break;
             case R.id.button:
-                Log.v(this.getClass().getName(), "onClick: Проверка новых");
+
+                SharedPreferences sp = this.getSharedPreferences(this.getString(R.string.F_INTRV), Context.MODE_PRIVATE);
+                EditText editText = (EditText) findViewById(R.id.editText);
+                String s2 = editText.getText().toString();
+                SharedPreferences.Editor e = sp.edit();
+                e.putString(this.getString(R.string.F_INTRV), s2).apply();
+
+                Log.v(this.getClass().getName(), "024--onClick: Новый интервал= " + s2);
 
                 break;
         }

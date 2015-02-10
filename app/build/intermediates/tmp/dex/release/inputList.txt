@@ -1,1 +1,0 @@
-/home/d1w/SamplesApp/InfonumService1/app/build/intermediates/classes/release

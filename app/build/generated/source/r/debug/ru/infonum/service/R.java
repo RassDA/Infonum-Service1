@@ -29,6 +29,7 @@ public final class R {
         public static final int button=0x7f070002;
         public static final int buttonStart=0x7f070000;
         public static final int buttonStop=0x7f070001;
+        public static final int editText=0x7f070003;
     }
     public static final class layout {
         public static final int main=0x7f030000;
@@ -36,21 +37,24 @@ public final class R {
     public static final class string {
         public static final int AUTO=0x7f050000;
         public static final int DATE=0x7f050001;
-        public static final int INFONUM_SITE=0x7f050002;
-        public static final int NAME=0x7f050003;
-        public static final int NOTIF_SITE=0x7f050004;
-        public static final int NTF_SUBTEXT=0x7f050005;
-        public static final int NTF_TITLE=0x7f050006;
-        public static final int PATH=0x7f050007;
-        public static final int TESTNUM=0x7f050008;
-        public static final int TESTTEL=0x7f050009;
-        public static final int TEXT=0x7f05000a;
-        public static final int app_name=0x7f05000b;
-        public static final int bar_txt=0x7f05000c;
-        public static final int btn_start_txt=0x7f05000d;
-        public static final int btn_stop_txt=0x7f05000e;
-        public static final int btn_txt=0x7f05000f;
-        public static final int header_txt=0x7f050010;
+        public static final int F_INTRV=0x7f050002;
+        public static final int INFONUM_SITE=0x7f050003;
+        public static final int INIT_INTERVAL=0x7f050004;
+        public static final int INST=0x7f050005;
+        public static final int NAME=0x7f050006;
+        public static final int NOTIF_SITE=0x7f050007;
+        public static final int NTF_SUBTEXT=0x7f050008;
+        public static final int NTF_TITLE=0x7f050009;
+        public static final int PATH=0x7f05000a;
+        public static final int TESTNUM=0x7f05000b;
+        public static final int TESTTEL=0x7f05000c;
+        public static final int TEXT=0x7f05000d;
+        public static final int app_name=0x7f05000e;
+        public static final int bar_txt=0x7f05000f;
+        public static final int btn_start_txt=0x7f050010;
+        public static final int btn_stop_txt=0x7f050011;
+        public static final int btn_txt=0x7f050012;
+        public static final int header_txt=0x7f050013;
     }
     public static final class style {
         public static final int AppTheme=0x7f060000;

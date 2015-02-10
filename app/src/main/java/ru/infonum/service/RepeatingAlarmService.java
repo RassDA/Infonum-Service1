@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -13,44 +14,46 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 
 public class RepeatingAlarmService extends BroadcastReceiver {
 
-
     final public static int NOTIFICATION_ID = 1;
     public static int nId = NOTIFICATION_ID;
 
-    final public String TESTTEL = "+79119148047";
-    final public String TESTNUM = "a000aa00";
+    public static final String TESTTEL = "+79119148047";
+    public static final String TESTNUM = "a000aa00";
+    public static String inText = "Эвакуатор!";
 
-    public String num = TESTNUM;
-    public String inText = "Эвакуатор!";
+    public static String num = TESTNUM;
 
-    final String NTF_TITLE = "Инфонум: ";
-    final String NTF_TEXT = ": Подойдите к авто!";
-    final String NTF_SUBTEXT = "Нажмите сюда, чтобы перейти на страницу номера или смахните, чтобы удалить ";
+    public static final String NTF_TITLE = "Инфонум: ";
+    public static final String NTF_TEXT = ": Подойдите к авто!";
+    public static final String NTF_SUBTEXT = "Нажмите сюда, чтобы перейти на страницу номера или смахните, чтобы удалить ";
 
-    final public String INFONUM_SITE = "http://infonum.ru/";
-    final public String NOTIF_SITE = "notification/";
+    public static final String INFONUM_SITE = "http://infonum.ru/";
+    public static final String NOTIF_SITE = "notification/";
 
-    final public String INST_RQ = "Installation";
+    public static final String INST_RQ = "Installation";
 
-    public String s = INFONUM_SITE;
+    public static String s = INFONUM_SITE;
 
     private static final String AUTO = "auto_number";
     private static final String NAME = "name";
@@ -58,101 +61,213 @@ public class RepeatingAlarmService extends BroadcastReceiver {
     private static final String TEXT = "text";
     private static final String PATH = "path";
 
+    private static final int F_AUTO = 0;
+    private static final int F_NAME = 1;
+    private static final int F_DATE = 2;
+    private static final int F_TEXT = 3;
+    private static final int F_PATH = 4;
+
+
     private static final String DEVID = "DeviceId";
     private static final String TELNUM = "telNum";
     private static final String DATA = "data";
 
-    public static String deviceId = "";
+    //public static String deviceId = "";
     public static String responseStr = "";
+    public static String postParam1 = "";
+    public static String postParam2 = TESTTEL;
     public static int messQ = 0;
 
-    public String ntfContTitle = "";
-    public String ntfContText = "";
-    public String ntfSubText = "";
+    public String ntfContentTitle = "InfonumDef1";
+    public String ntfContentText = "InfonumDef2";
+    public String ntfContentInfo = "InfOnum";
+    public String ntfSubText = "InfonumDef3";
+    public String ntfTicker = "";
+
+    public static Intent ntfIntent;
+
+    //long[] pattern = {500,500,500,500,500,500,500,500,500};
+    private static final long[] NTF_VIBRO_PATTERN = {300L, 300L};
+    public long[] ntfVibroPattern = NTF_VIBRO_PATTERN;
+
     public String ntfUri = INFONUM_SITE;
 
     public Context ctx;
 
-    public boolean ntfTop = false;
-    public boolean ntfCancel = true;
-    public static boolean appActivated = false;
+    public static boolean ntfTop = false;
+    public static boolean ntfCancel = true;
+    public static boolean ntfVibro = false;
+    public static boolean ntfSettings = false;
+    public static boolean ntfNoClear = true;
 
-    public static List<String[]> notiArr = new ArrayList<String[]>();
-    public static String[] noti;
-    public static String appNum = null;
+    public static String appNum = "";
+    public static final String INSTALLATION = "Installation";
+    public static final String TAG = "inf";
+
+    public static int jsonFields = 5; // количество полей в одном извещении
+
+    private static final int NTF_SMALL_ICON_1 = R.drawable.ic_stat_notification;
+    private static final int NTF_SMALL_ICON_2 = R.drawable.ic_stat_notification;
+    private static final int NTF_SMALL_ICON_3 = R.drawable.ic_stat_notification;
+    private static final int NTF_SMALL_ICON_4 = R.drawable.ic_stat_notification;
+    private static final int NTF_SMALL_ICON_5 = R.drawable.ic_stat_notification;
+    public static int ntfSmallIcon = NTF_SMALL_ICON_1;
+
+    private static final int NTF_LARGE_ICON_1 = R.drawable.ic_launcher;
+    private static final int NTF_LARGE_ICON_2 = R.drawable.ic_launcher;
+    private static final int NTF_LARGE_ICON_3 = R.drawable.ic_launcher;
+    private static final int NTF_LARGE_ICON_4 = R.drawable.ic_launcher;
+    private static final int NTF_LARGE_ICON_5 = R.drawable.ic_launcher;
+    public static int ntfLargeIcon = NTF_LARGE_ICON_1;
+
+    //public static List<String> notiArr = new ArrayList<>();
+    //public static String[] n = new String[jsonFields];
+
 
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
         ctx = context;
-        Toast.makeText(ctx, "Инфонум: получение новых", Toast.LENGTH_LONG).show();
-
-        new Installation();
-
-        deviceId = appNum;
-        // deviceId = getDeviceId(ctx);      // раз не первый запуск приложения, выясняем данные устройства.
-        if (appActivated == false) {
-            Installation.id(ctx, appNum); // проверяем наличие файла с кодом приложения
-            if (appNum == null)
-                deviceId = INST_RQ; //если файла нет, то запрашиваем код приложения, передав вместо deviceId строку запроса.
-            else
-                appActivated = true;
+        Toast.makeText(ctx, "Инфонум: Получение новых", Toast.LENGTH_LONG).show();
+/*
+        // проверка изменения интервала запроса
+        int n;
+        String sI = "";
+        SharedPreferences sp = ctx.getSharedPreferences(ctx.getString(R.string.F_INTRV), Context.MODE_PRIVATE);
+        String sI = sp.getString(ctx.getString(R.string.F_INTRV), "");
+        if (s.length() != 0) {
+            n = Integer.valueOf(s); // без проверок
+            Log.v(TAG, "022--Прочитан интервал: " + sI);
+        } else {
+            SharedPreferences.Editor ed = sp.edit();
+            ed.putString(ctx.getString(R.string.F_INTRV), ctx.getString(R.string.INIT_INTERVAL)).apply();
+            Log.v(TAG, "023--Не удалось прочитать сохраненный интервал. Установлен заново.");
         }
-        // запускаем цикл post-запросов к сайту по таймеру.
-        // проверяем наличие новых сообщений, разбирая ответ
-        // если есть новые - генерируем уведомление.
+*/
+        //postParam1 = getDeviceId(ctx);      // раз не первый запуск приложения, выясняем данные устройства.
+        SharedPreferences sp = ctx.getSharedPreferences(ctx.getString(R.string.INST), Context.MODE_PRIVATE);
+        appNum = sp.getString(ctx.getString(R.string.INST), "");
+        Log.d(TAG, "001--appNum=" + appNum.length() + ": " + appNum);
 
-        //
-        responseStr = ""; // в нее придет ответ
-        new RequestTask().execute(INFONUM_SITE + NOTIF_SITE); // post-запрос по этому адресу
+        if (appNum.length() == 0 || appNum == null) {
+            Log.d(TAG, "015--New app code -------------------------------------------------------------------------------");
 
-        Log.v(this.getClass().getName(), "Timed alarm onReceive() started at time: " + new java.sql.Timestamp(System.currentTimeMillis()).toString());
+            postParam1 = ctx.getString(R.string.INST); //если файла нет, то запрашиваем код приложения, передав вместо deviceId строку запроса.
+            // делаем только один запрос на получение кода, код не проверяем
+            // TODO нужен протокол обмена получеия кода
 
-        if (responseStr.length() > 0) {
-            jsonToArray(responseStr);
-            if (appActivated) {
-                for (int i = 0; i < messQ; i++) {
-                    setNotiParam(i);
-                    sendNotification();
+            String response = "";
+            PostTask postTask = new PostTask();
+            postTask.execute(INFONUM_SITE + NOTIF_SITE); // post-запрос по этому адресу
+            try {
+                response = postTask.get();
+
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+            responseStr = response;
+
+            if (responseStr.length() > 0) {
+                Log.d(TAG, "010--responseStr " + responseStr.length() + ": " + responseStr);
+                String[] nA = jsonToArray(0, responseStr); // ключ должен вернуться в первом элементе массива
+                if (num.equals(ctx.getString(R.string.INST))) {
+                    //appNum = notiArr.get(1)[F_TEXT]; // записываем, не проверяя соотв. спец. UUID. UUID.fromString(String)
+                    Log.d(TAG, "002--appNum: " + appNum);
+                    SharedPreferences.Editor ed = sp.edit();
+                    ed.putString(ctx.getString(R.string.INST), appNum);
+                    ed.apply(); // подтверждаем изменения
                 }
             } else {
-                Installation.id(ctx, noti[3]);
+                // следующий запрос на получение кода - по таймеру
+                Log.d(TAG, "003--appNum: пустая строка, код не получен, следующий запрос по таймеру");
+            }
+        } else { // Нормальное получение извещений
 
+            // код приложения получен и сохранен ранее. Обычное получение новых.
+            //postParam1 = getDeviceId(ctx);      // раз не первый запуск приложения, выясняем данные устройства.
+
+            // post-запрос к сайту по таймеру.
+            // проверяем наличие новых сообщений, разбирая ответ
+            // если есть новые - генерируем уведомление.
+            postParam1 = appNum;
+
+            String response = "";
+            PostTask postTask = new PostTask();
+            postTask.execute(INFONUM_SITE + NOTIF_SITE); // post-запрос по этому адресу
+            Log.d(TAG, "033--postTask.execute: " + INFONUM_SITE + NOTIF_SITE);
+
+            try {
+                response = postTask.get();
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+            responseStr = response;
+
+            Log.v(this.getClass().getName(), "004--Timed alarm onReceive() started at time: " + new java.sql.Timestamp(System.currentTimeMillis()).toString());
+            Log.d(TAG, "034--response=" + response);
+
+            String[] nA = null;
+
+            if (responseStr.length() > 0) { // main loop ****************************
+
+                nA = jsonToArray(0, responseStr); // только чтобы получить длину массива messQ
+
+                for (int i = 0; i < messQ; i++) {
+                    Log.d(TAG, "017--Запрос на получение новых");
+                    nA = jsonToArray(i, responseStr);
+                    if (nA != null) {
+                        setNotiParam(i + 1, nA);
+                        sendNotification();
+                        Log.d(TAG, "005--i= " + i + ": " + nA[F_AUTO] + " # " + nA[F_TEXT]);
+                    }
+                }
+                if (nA != null) { // Настройки в извещениях - всегда id=0
+                    setNotiParam(0, nA);
+                    sendNotification();
+                }
             }
         }
     }
 
-    class RequestTask extends AsyncTask<String, String, String> {
-
+    class PostTask extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... params) {
-            Log.d("inf", "devId= " + deviceId);
+            return postData(params[0]);
+        }
+
+        @Override
+        protected void onPostExecute(String str) {
+            // Выполнение какого-то действия, когда поток выполнится
+        }
+
+        public String postData(String url) {
+            // Подключаемся и указываем принимающий URL
+            DefaultHttpClient hc = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost(url);
 
             try {
-                //создаем запрос на сервер
-                DefaultHttpClient hc = new DefaultHttpClient();
-                ResponseHandler<String> res = new BasicResponseHandler();
-                //он у нас будет посылать post запрос
-                HttpPost postMethod = new HttpPost(params[0]);
+                // Создаём коллекцию, которая используется для передачи данных
+                List<NameValuePair> sendData = new ArrayList<>(2);
 
-                //будем передавать два параметра, чтобы не переделывать
-                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-                //передаем две пары имя:значение
-                nameValuePairs.add(new BasicNameValuePair(DEVID, deviceId)); //формируется снаружи
-                nameValuePairs.add(new BasicNameValuePair(TELNUM, TESTNUM));
-                //собираем их вместе и посылаем на сервер
-                postMethod.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                // Добавляем в неё данные
+                sendData.add(new BasicNameValuePair(DEVID, postParam1));
+                sendData.add(new BasicNameValuePair(TELNUM, postParam2));
+                Log.d(TAG, "037--sendData: " + sendData.toString());
 
-                //получаем ответ от сервера
-                String response = hc.execute(postMethod, res);
-                responseStr = response;  // передаем на глоб. уровень
+                // Упаковываем данные
+                httppost.setEntity(new UrlEncodedFormEntity(sendData));
 
-                // if(response.length() > 0) jsonUrl(response);
+                // Выполняем POST-запрос
+                HttpResponse response = hc.execute(httppost);
+                // Возвращаем преобразованный в строку ответ - вероятно, неправильно
+                return EntityUtils.toString(response.getEntity());
 
-            } catch (Exception e) {
-                System.out.println("Exp=" + e);
+            } catch (ClientProtocolException e) {
+                // исключение
+            } catch (IOException e) {
+                // исключение
             }
             return null;
         }
@@ -160,107 +275,48 @@ public class RepeatingAlarmService extends BroadcastReceiver {
     }
 
 
-    /*
-    // Разбор ответа сайта и запуск уведомлений
-     */
-    public void jsonUrl(String result) {
+    public String[] jsonToArray(int notiIndex, String result) {
 
         try {
-            //создали читателя json объектов и отдали ему строку - result
-            JSONObject json = new JSONObject(result);
-            //дальше находим вход в наш json им является ключевое слово "data"
-            JSONArray urls = json.getJSONArray(DATA);
-            //проходим циклом по всем нашим параметрам
-            messQ = urls.length();
-            Log.d("inf", "urls.length = " + messQ);
-
-            for (int i = 0; i < messQ; i++) {
-
-                // передаем номер для заголовка извещения через глоб.перем. -- исправить
-
-                num = urls.getJSONObject(i).getString(AUTO);
-                inText = urls.getJSONObject(i).getString(TEXT);
-
-                if (appActivated == false) {
-                    // это не запрос на код при первой установке приложения
-                    // формируем извещения как обычно
-                    Log.d("inf", "i = " + i + "    num= " + num);
-
-                    nId = i + 2;
-
-                    ntfContTitle = NTF_TITLE + num;
-                    ntfContText = num + ": " + inText + "\n";
-                    ntfSubText = ctx.getString(R.string.INFONUM_SITE) + num + NTF_SUBTEXT;
-                    ntfUri = INFONUM_SITE + num;
-                    ntfTop = false;
-                    ntfCancel = true;
-
-                    // Запуск извещения
-                    sendNotification();
-                } else {
-                    // Приложение только что установлено или потеряло свой код.
-                    // Других извещений в этом случае обнаружено не будет, так как нет подписок на номера страниц.
-                    // Нужно -- правильно обработать первое сообщение.
-                    // Можем выдать тестовое оповещение или с вызовом экрана приложения.
-                    setAppNum(inText);
-                }
-
-            }
-
-        } catch (JSONException e) {
-            Log.e("log_tag", "\nError parsing data " + e.toString());
-            Toast.makeText(ctx, "Ошибочка разбора json" + s + e.toString(), Toast.LENGTH_LONG).show();
-        }
-
-        // отдельно готовим и посылаем извещение, открывающее окно приложения
-        nId = 1;
-        ntfContTitle = "Infonum Settings";
-        ntfContText = "Всего новых: " + messQ;
-        ntfSubText = "Tap to change";
-        ntfTop = true;
-        ntfCancel = false;
-
-        sendNotification();
-
-    }
-
-
-    public void jsonToArray(String result) {
-
-        try {
+            Log.d(TAG, "011--result=" + result.length() + ": " + result);
 
             //создали читателя json объектов и отдали ему строку - result
             JSONObject json = new JSONObject(result);
             //дальше находим вход в наш json им является ключевое слово "data"
-            JSONArray urls = json.getJSONArray(DATA);
-            //проходим циклом по всем нашим параметрам
-            messQ = urls.length();
-            Log.d("inf", "urls.length = " + messQ);
+            JSONArray jArr = json.getJSONArray(DATA);
 
-            for (int i = 0; i < messQ; i++) {
+            Log.d(TAG, "012--urls=" + jArr.length() + ": " + jArr.toString() + " кол.полей=" + jArr.getJSONObject(0).length());
 
-                // передаем номер для заголовка извещения через глоб.перем. -- исправить
-                noti[0] = urls.getJSONObject(i).getString(AUTO);
-                noti[1] = urls.getJSONObject(i).getString(NAME);
-                noti[2] = urls.getJSONObject(i).getString(DATE);
-                noti[3] = urls.getJSONObject(i).getString(TEXT);
-                noti[4] = urls.getJSONObject(i).getString(PATH);
-                notiArr.add(noti);
+            messQ = jArr.length();
+            jsonFields = jArr.getJSONObject(0).length();
 
-                num = urls.getJSONObject(i).getString(AUTO);
-                //num = noti[0];
-                inText = urls.getJSONObject(i).getString(TEXT);
-                //inText = noti[3];
-            }
+
+            String[] n = new String[jsonFields];
+            for (int i = 0; i < jsonFields; i++) n[i] = "";
+
+            n[F_AUTO] = jArr.getJSONObject(notiIndex).getString(AUTO);
+            n[F_NAME] = jArr.getJSONObject(notiIndex).getString(NAME);
+            n[F_DATE] = jArr.getJSONObject(notiIndex).getString(DATE);
+            n[F_TEXT] = jArr.getJSONObject(notiIndex).getString(TEXT);
+            n[F_PATH] = jArr.getJSONObject(notiIndex).getString(PATH);
+
+            num = n[F_AUTO];
+            inText = n[F_TEXT];
+            appNum = n[F_TEXT];
+
+            Log.d(TAG, "008--i= " + notiIndex + ": " + n[F_AUTO] + ", TEXT= " + n[F_TEXT]);
+            return n;
 
         } catch (JSONException e) {
-            Log.e("log_tag", "\nError parsing data " + e.toString());
+            Log.e(TAG, "009--Error parsing data " + e.toString());
             Toast.makeText(ctx, "Ошибочка разбора json" + s + e.toString(), Toast.LENGTH_LONG).show();
         }
+        return null;
     }
 
     //
     // Отправка тестового извещения через NotificationCompat API.
+    //
     //
 
     public void sendNotification() {
@@ -274,73 +330,38 @@ public class RepeatingAlarmService extends BroadcastReceiver {
         // Мы открываем страницу номера в браузере по клику на уведомлении
         //
 
-        Intent intent = new Intent(Intent.ACTION_VIEW,
-                Uri.parse(ntfUri));
-        PendingIntent pendingIntent = PendingIntent.getActivity(ctx, 0, intent, 0);
+        //Intent intent;
+        //if(ntfSettings)
+        //    intent = new Intent(ctx, ServiceActivity.class);
+        //else
+        //    intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ntfUri));
 
-        // END_INCLUDE(build_action)
+        PendingIntent pendingIntent = PendingIntent.getActivity(ctx, 0, ntfIntent, 0);
 
-        // BEGIN_INCLUDE (build_notification)
-        //
-        // Use NotificationCompat.Builder to set up our notification.
-        //
         Notification.Builder builder = new Notification.Builder(ctx);
 
-        //
-        // Устаннавливаем иконку, которая появится в строке уведомлений.
-        // Эта иконка также появится в нижнем правом углу самого уведомления.
-        // Важное замечание: Иконка должна быть простой и монохромной.
-        //
-        builder.setSmallIcon(R.drawable.ic_stat_notification);
+        builder.setContentIntent(pendingIntent)
+                //дальше методы к этому
+                .setSmallIcon(ntfSmallIcon)
+                .setLargeIcon(BitmapFactory.decodeResource(ctx.getResources(), ntfLargeIcon))
 
-        // Задаем интент, который сработает по тапу по извещению
-        // Set the intent that will fire when the user taps the notification.
-        builder.setContentIntent(pendingIntent);
+                .setAutoCancel(ntfCancel)
 
-        // Устанавливаем извещение в автоотмену. Это означает, что уведомление будет скрываться
-        // после того, как пользователь тапнет по нему,
-        builder.setAutoCancel(ntfCancel);
+                .setContentTitle(ntfContentTitle)
+                .setContentText(ntfContentText)
+                .setSubText(ntfSubText)
+                .setVibrate(ntfVibroPattern) //очень раздражает
+                .setTicker(ntfTicker)
+                .setNumber(messQ) // not in 4.2
+                .setContentInfo(ntfContentInfo)
+                .setOngoing(ntfTop);
 
-        //
-        // Строим представление извещения.
-        // Устанавливаем большую иконку, которая должна появиться слева от извещения.
-        // Здесь мы взяли в качестве большой иконки иконку приложения. Она подойдет.
-        ///
-        builder.setLargeIcon(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.ic_launcher));
-
-        // Задаем текст уведомления. Этот тестовый набор содержит три чаще всего используемые
-        // области текста:
-        // 1. Заголовок содержимого, который показывается, когда уведомление развернуто.
-        // 2. Текст, который появляется в кратком виде под заголовком.
-        // 3. Текст, который появляется еще ниже. Виден только на Андроиде > 4.2.
-        ///
-        //builder.setContentTitle(NTF_TITLE + num);
-        builder.setContentTitle(ntfContTitle);
-        builder.setContentText(ntfContText);
-        builder.setSubText(ntfSubText);
-
-        //long[] pattern = {500,500,500,500,500,500,500,500,500};
-        long[] pattern = {300L, 300L}; // 2 times vibro, not 1
-        builder.setVibrate(pattern); //очень раздражает
-
+        if (ntfNoClear) builder.setDefaults(Notification.FLAG_NO_CLEAR);
         //builder.setSound( );
-        builder.setTicker(num);
-        builder.setNumber(messQ); // not in 4.2
-        builder.setContentInfo("InfOnum");
-        builder.setOngoing(ntfTop);
-        // END_INCLUDE (build_notification)
 
-        // BEGIN_INCLUDE(send_notification)
-        //
-        // Send the notification. This will immediately display the notification icon in the
-        // notification bar.
-        //
         NotificationManager notificationManager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
         notificationManager.notify(nId, builder.build());
-        // END_INCLUDE(send_notification)
-        //
-
     }
 
     public String getDeviceId(Context context) {
@@ -357,36 +378,79 @@ public class RepeatingAlarmService extends BroadcastReceiver {
         return deviceUuid.toString();  //RFC 4122 UUID - шифрованный
     }
 
-    public boolean checkAppNum() {
-        // проверяем наличие файла и, возможно, наличие кода приложения в нем и правильность его формата
-        return true;
-    }
 
-    public boolean setAppNum(String appNum) {
-        // пишем код в файл
-        return true;
-    }
+    public void setNotiParam(int iNotif, String[] n) {
 
-    public void setNotiParam(int i) {
-        if (!appActivated) i = 0;
-        for (int j = 0; j < i; j++) {
-            switch (i) {
-                case 0: //первое сообщение:"всего сообщений"
 
-                    ;
-                    break;
-                case 1: // новое сообщение с номера
-                    ;
-                    break;
-                case 2:
-                    ;
-                    break;
-                case 3:
-                    ;
-                    break;
-            }
+        // Значения по-умолчанию
+        nId = iNotif;
+        ntfIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ntfUri));
+
+        ntfSmallIcon = NTF_SMALL_ICON_1;
+        ntfLargeIcon = NTF_LARGE_ICON_1;
+
+        ntfContentTitle = n[F_AUTO];
+        ntfContentText = n[F_AUTO] + ": " + n[F_TEXT];
+        ntfSubText = ctx.getString(R.string.INFONUM_SITE) + n[F_AUTO];
+        ntfTicker = n[F_AUTO];
+        ntfUri = INFONUM_SITE + n[F_AUTO] + "?appid=" + appNum;
+        ntfTop = false;
+        ntfCancel = true;
+        ntfContentInfo = "InfOnum";
+        ntfVibroPattern = null; // 2 times vibro
+        ntfSettings = false;
+        ntfNoClear = true;
+        ntfVibro = true;
+
+        switch (iNotif) {
+
+            case 0: //первое сообщение:НАСТРОЙКИ Инфонум. Запускает экран настроек.
+                ntfIntent = new Intent(ctx, ServiceActivity.class);
+                ntfSmallIcon = NTF_SMALL_ICON_1;
+                ntfLargeIcon = NTF_LARGE_ICON_1;
+                ntfSettings = true;
+                ntfNoClear = false;
+                ntfTicker = "Новых " + messQ;
+                ntfContentTitle = "Настройки";
+                ntfContentText = "Осталось незагруженных: " + messQ;
+                ntfSubText = "Войти в настройки";
+                ntfContentInfo = "ИнфОнум";
+                ntfUri = INFONUM_SITE; // не используется при вызове
+                ntfTop = true;
+                ntfCancel = false;
+                if (ntfVibro) ntfVibroPattern = NTF_VIBRO_PATTERN; // 2 times vibro
+                break;
+
+            case 4: // сводное сообщение -- Всего новых сообщений 8
+
+                ntfContentTitle = n[F_TEXT];
+                ntfContentText = ctx.getString(R.string.INFONUM_SITE);
+                ntfSubText = "Читать все на сайте";
+                ntfSettings = false;
+                ntfNoClear = true;
+                ntfVibroPattern = null;
+                break;
+
+            case 2: // новое сообщение с номера
+                ntfSettings = false;
+                ntfNoClear = true;
+                ntfVibroPattern = null;
+                break;
+
+            case 3:
+                ntfSettings = false;
+                ntfNoClear = true;
+                ntfVibroPattern = null;
+                break;
+
+            case 1:
+                ntfSettings = false;
+                ntfNoClear = true;
+                ntfVibroPattern = null;
+                break;
         }
-        //добавить 
     }
+
+
 }
 

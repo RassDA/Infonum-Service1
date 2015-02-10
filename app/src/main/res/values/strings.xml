@@ -19,7 +19,7 @@ limitations under the License.
     <string name="btn_start_txt">Старт</string>
     <string name="btn_stop_txt">Стоп</string>
     <string name="btn_txt">Проверить</string>
-    <string name="header_txt">Service Example</string>
+    <string name="header_txt">Инфонум сервис</string>
     <string name="TESTTEL">+79119148047</string>
     <string name="TESTNUM">a000aa00</string>
     <string name="NTF_TITLE">Инфонум: </string>
@@ -31,5 +31,8 @@ limitations under the License.
     <string name="DATE">date</string>
     <string name="TEXT">text</string>
     <string name="PATH">path</string>
+    <string name="INST">Installation</string>
+    <string name="INIT_INTERVAL">60000</string>
+    <string name="F_INTRV">RQ_INTERVAL</string>
 
 </resources>
