@@ -1,0 +1,8 @@
+App:    devId = "Installation"
+
+Server: devId = "797a0b0f-8881-e734-a538-c75fd1a814d4" // appId
+
+App:    devId = "797a0b0f-8881-e734-a538-c75fd1a814d4" // appId
+        telNum = "+79110000000"
+
+Server:

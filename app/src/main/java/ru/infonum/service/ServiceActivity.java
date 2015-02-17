@@ -49,6 +49,11 @@ public class ServiceActivity extends Activity implements View.OnClickListener {
                 SharedPreferences.Editor e = sp.edit();
                 e.putString(this.getString(R.string.F_INTRV), s2).apply();
 
+                stopService(new Intent(this, ServiceExample.class));
+                Log.v(this.getClass().getName(), "onClick: Сервис остановлен.");
+                startService(new Intent(this, ServiceExample.class));
+                Log.v(this.getClass().getName(), "onClick: Сервис стартовал.");
+
                 Log.v(this.getClass().getName(), "024--onClick: Новый интервал= " + s2);
 
                 break;

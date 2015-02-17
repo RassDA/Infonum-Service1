@@ -48,21 +48,21 @@ public class ServiceExample extends Service {
 
     private void startService() {
 
-        int n = INTERVAL; //TODO сохранение интервала не работает
+        int interval = INTERVAL;
 
         Intent intent = new Intent(this, RepeatingAlarmService.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, REQUEST_CODE, intent, 0);
 
-        SharedPreferences sp = this.getSharedPreferences(this.getString(R.string.F_INTRV), Context.MODE_PRIVATE);
-        String s = sp.getString(this.getString(R.string.F_INTRV), "");
+        SharedPreferences sp = getSharedPreferences(getString(R.string.F_INTRV), Context.MODE_PRIVATE);
+        String s = sp.getString(getString(R.string.F_INTRV), "");
         if (s.length() != 0) {
-            n = Integer.valueOf(s); // без проверок
+            interval = Integer.valueOf(s); // без проверок
             Log.v(TAG, "020--Прочитан интервал: " + s);
         } else {
             SharedPreferences.Editor ed = sp.edit();
-            ed.putString(this.getString(R.string.F_INTRV), this.getString(R.string.INIT_INTERVAL)).apply();
+            ed.putString(getString(R.string.F_INTRV), getString(R.string.INIT_INTERVAL)).apply();
             Log.v(TAG, "021--Не удалось прочитать сохраненный интервал. Установлен заново.");
-            n = INTERVAL;
+            interval = Integer.valueOf(getString(R.string.INIT_INTERVAL));
 
         }
 
@@ -70,7 +70,7 @@ public class ServiceExample extends Service {
         alarmManager.setRepeating(
                 AlarmManager.ELAPSED_REALTIME_WAKEUP,
                 SystemClock.elapsedRealtime() + FIRST_RUN,
-                n,
+                interval,
                 pendingIntent);
 
         Toast.makeText(this, "Инфонум: периодическая проверка новых на сайте стартовала! Интервал =" + s, Toast.LENGTH_LONG).show();

@@ -18,7 +18,7 @@ limitations under the License.
     <string name="bar_txt">Инфонум сервис</string>
     <string name="btn_start_txt">Старт</string>
     <string name="btn_stop_txt">Стоп</string>
-    <string name="btn_txt">Проверить</string>
+    <string name="btn_txt">Проверка каждые...</string>
     <string name="header_txt">Инфонум сервис</string>
     <string name="TESTTEL">+79119148047</string>
     <string name="TESTNUM">a000aa00</string>

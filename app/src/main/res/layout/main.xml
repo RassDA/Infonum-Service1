@@ -27,12 +27,6 @@
         android:id="@+id/buttonStop"
         android:text="@string/btn_stop_txt" />
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:text="@string/btn_txt" />
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,5 +34,11 @@
         android:ems="10"
         android:id="@+id/editText"
         android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:text="@string/btn_txt" />
 
 </LinearLayout>

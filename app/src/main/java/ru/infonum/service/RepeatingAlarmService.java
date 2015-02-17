@@ -130,21 +130,7 @@ public class RepeatingAlarmService extends BroadcastReceiver {
 
         ctx = context;
         Toast.makeText(ctx, "Инфонум: Получение новых", Toast.LENGTH_LONG).show();
-/*
-        // проверка изменения интервала запроса
-        int n;
-        String sI = "";
-        SharedPreferences sp = ctx.getSharedPreferences(ctx.getString(R.string.F_INTRV), Context.MODE_PRIVATE);
-        String sI = sp.getString(ctx.getString(R.string.F_INTRV), "");
-        if (s.length() != 0) {
-            n = Integer.valueOf(s); // без проверок
-            Log.v(TAG, "022--Прочитан интервал: " + sI);
-        } else {
-            SharedPreferences.Editor ed = sp.edit();
-            ed.putString(ctx.getString(R.string.F_INTRV), ctx.getString(R.string.INIT_INTERVAL)).apply();
-            Log.v(TAG, "023--Не удалось прочитать сохраненный интервал. Установлен заново.");
-        }
-*/
+
         //postParam1 = getDeviceId(ctx);      // раз не первый запуск приложения, выясняем данные устройства.
         SharedPreferences sp = ctx.getSharedPreferences(ctx.getString(R.string.INST), Context.MODE_PRIVATE);
         appNum = sp.getString(ctx.getString(R.string.INST), "");
@@ -155,7 +141,7 @@ public class RepeatingAlarmService extends BroadcastReceiver {
 
             postParam1 = ctx.getString(R.string.INST); //если файла нет, то запрашиваем код приложения, передав вместо deviceId строку запроса.
             // делаем только один запрос на получение кода, код не проверяем
-            // TODO нужен протокол обмена получеия кода
+            // TODO нужен протокол обмена для получения кода
 
             String response = "";
             PostTask postTask = new PostTask();
@@ -175,8 +161,7 @@ public class RepeatingAlarmService extends BroadcastReceiver {
                     //appNum = notiArr.get(1)[F_TEXT]; // записываем, не проверяя соотв. спец. UUID. UUID.fromString(String)
                     Log.d(TAG, "002--appNum: " + appNum);
                     SharedPreferences.Editor ed = sp.edit();
-                    ed.putString(ctx.getString(R.string.INST), appNum);
-                    ed.apply(); // подтверждаем изменения
+                    ed.putString(ctx.getString(R.string.INST), appNum).apply();
                 }
             } else {
                 // следующий запрос на получение кода - по таймеру
