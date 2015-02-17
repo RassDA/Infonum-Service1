@@ -48,7 +48,7 @@ public class RepeatingAlarmService extends BroadcastReceiver {
     public static final String NTF_TEXT = ": Подойдите к авто!";
     public static final String NTF_SUBTEXT = "Нажмите сюда, чтобы перейти на страницу номера или смахните, чтобы удалить ";
 
-    public static final String INFONUM_SITE = "http://infonum.ru/";
+    public static final String INFONUM_SITE = "http://checkin.infonum.ru/";
     public static final String NOTIF_SITE = "notification/";
 
     public static final String INST_RQ = "Installation";
@@ -352,7 +352,7 @@ public class RepeatingAlarmService extends BroadcastReceiver {
                 .setSubText(ntfSubText)
                 .setVibrate(ntfVibroPattern) //очень раздражает
                 .setTicker(ntfTicker)
-                .setNumber(messQ) // not in 4.2
+                .setNumber(messQ) // not in 4.1
                 .setContentInfo(ntfContentInfo)
                 .setOngoing(ntfTop);
 

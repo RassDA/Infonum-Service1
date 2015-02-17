@@ -19,10 +19,11 @@ public class OnBootReceiver extends BroadcastReceiver {
 
             SharedPreferences sp = context.getSharedPreferences(context.getString(R.string.F_INTRV), Context.MODE_PRIVATE);
             String sIntrv = sp.getString(context.getString(R.string.F_INTRV), "");
+            SharedPreferences.Editor ed = sp.edit();
             if (sIntrv.length() == 0) {
-                SharedPreferences.Editor ed = sp.edit();
                 ed.putString(context.getString(R.string.F_INTRV), context.getString(R.string.INIT_INTERVAL)).apply(); // подтверждаем изменения
             }
+            ed.putString(context.getString(R.string.INST), "").clear().apply();
             Toast.makeText(context, "Инфонум: Старт сервиса при загрузке! INTRVL= " + sp.getString(context.getString(R.string.F_INTRV), ""), Toast.LENGTH_LONG).show();
 
         }
